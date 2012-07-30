@@ -42,14 +42,18 @@ debug: all
 # Our objects that needs to be compiled
 OBJS =	main.o \
 	lex.yy.o \
-	parser.tab.o
+	parser.tab.o \
+	object.o
 
 # Main target
 saffire: $(OBJS)
 	$(LD) $(LD_FLAGS) -o $(TARGET) $(OBJS)
 
+
+object.c:
+
 # depends on parser.tab.c (actually, parser.tab.h)
-main.o:	parser.tab.c
+main.o:	parser.tab.c object.c
 
 # Bison the parser from our saffire.y
 parser.tab.c:

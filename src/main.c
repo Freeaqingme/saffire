@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "parser.tab.h"
+#include "object.h"
 
 #include "saffire_parser.h"
 
@@ -25,6 +26,7 @@ typedef struct var {
 
 #define MAX_VARS 50
 t_var *vars[MAX_VARS];
+
 
 void print_var(t_var *var) {
     printf("VAR:\n");
@@ -203,6 +205,9 @@ void saffire_do_expr() {
 
 
 int main(int argc, char *argv[]) {
+
+	tmp();
+
     // Here we just initialize some temporary variable storage
     int i;
     for (i=0; i!=MAX_VARS; i++) {
